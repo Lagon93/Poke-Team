@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <script src="main.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Equipo Pokémon</title>
 </head>
 <body>
-    <div id="equipo">
-        <!-- Aquí se mostrarán los Pokémon del equipo -->
-    </div>
 
+<div id="equipo-container">
+    <div id="equipo"></div>
+</div>
+
+<div id="container">
     <div id="controles">
+        <input type="text" id="buscarInput" placeholder="Buscar Pokémon">
+        <ul id="listaBusqueda"></ul>
         <button id="agregarBtn">Agregar Pokémon</button>
-        <button id="eliminarBtn">Eliminar Pokémon</button>
+        <div id="eliminarDropdown">
+            <label for="eliminarSelect">Selecciona para eliminar:</label>
+            <select id="eliminarSelect"></select>
+            <button id="eliminarBtn">Eliminar Pokémon</button>
+        </div>
     </div>
+</div>
 
-    <script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="main.js"></script>
+
 </body>
 </html>

@@ -1,25 +1,91 @@
-/* styles.css */
 body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    width: 600px; /* Establecemos un ancho fijo */
+    margin: 0 auto; /* Centramos el contenido horizontalmente */
+    padding-top: 2rem;
+}
+
+#container {
+    display: flex;
+    gap: 20px;
+}
+
+#controles {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#equipo-container {
+    overflow-x: auto; /* Agregamos desplazamiento horizontal si es necesario */
+    align-self: flex-start; /* Alineamos el contenedor del equipo a la izquierda */
+    border-width: 0.1rem;
+    border-style: solid;
 }
 
 #equipo {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    gap: 10px;
+    position: relative;
 }
 
 #equipo img {
-    width: 80px;
-    margin: 0 10px;
+    width: 80px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
 }
 
-#controles {
-    margin-top: 20px;
+#buscarInput {
+    padding: 5px;
+}
+
+#listaBusqueda {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#listaBusqueda li {
+    cursor: pointer;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#listaBusqueda li:hover {
+    background-color: #f0f0f0;
 }
 
 button {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
     font-size: 16px;
-    margin: 0 10px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#eliminarDropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#eliminarSelect {
+    padding: 5px;
 }
