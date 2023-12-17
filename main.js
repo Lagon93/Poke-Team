@@ -1,4 +1,3 @@
-// main.js
 document.addEventListener('DOMContentLoaded', function () {
     const equipoDiv = document.getElementById('equipo');
     const controlesDiv = document.getElementById('controles');
@@ -35,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Actualiza el dropdown después de agregar
                 actualizarDropdownEliminar();
+
+                // Guardar el equipo actualizado en localStorage
+                guardarEquipo();
             })
             .catch(error => {
                 console.error(`Error al obtener el Pokémon ${nombrePokemon}`, error);
@@ -89,6 +91,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Función para guardar el equipo en localStorage
+    function guardarEquipo() {
+        const equipo = Array.from(equipoDiv.children).map(img => img.alt);
+        localStorage.setItem('equipo', JSON.stringify(equipo));
+    }
+
+    // Función para cargar el equipo almacenado en localStorage
+    function cargarEquipo() {
+        const storedTeam = JSON.parse(localStorage.getItem('equipo')) || [];
+        for (const pokemonName of storedTeam) {
+            agregarPokemonPorNombre(pokemonName);
+        }
+    }
+
     // Agrega los event listeners
     const buscarInput = document.getElementById('buscarInput');
     const agregarBtn = document.getElementById('agregarBtn');
@@ -108,9 +124,13 @@ document.addEventListener('DOMContentLoaded', function () {
         if (seleccionado) {
             equipoDiv.removeChild(equipoDiv.querySelector(`img[alt="${seleccionado}"]`));
             actualizarDropdownEliminar(); // Actualiza el dropdown después de eliminar
+            // Guardar el equipo actualizado en localStorage
+            guardarEquipo();
         }
     });
 
     // Llena el dropdown al cargar la página
+    cargarEquipo();
+    // Actualiza el dropdown al iniciar la página
     actualizarDropdownEliminar();
 });

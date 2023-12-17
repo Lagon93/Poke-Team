@@ -38,7 +38,7 @@ body {
 }
 
 #equipo img {
-    width: 80px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    width: 10rem; /* Ajusta el tamaño de las imágenes según sea necesario */
     height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
 }
 
